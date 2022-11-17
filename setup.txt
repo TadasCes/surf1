@@ -1,0 +1,15 @@
+This script automatically pulls data from youtube API, based on the most recent keyword typed in the Slack channel. At the moment, it is configured, to check every minute 
+for new keywords typed in a channel. If a new keyword is read, then the script returns the message back to the channel about the new monitored keyword. 
+(This could be improved by reading events from Slack Events API, but as I understand, it would require having a distinct URL for Slack to send events to). 
+This way, we can change what we look for while the script is running, without the need for reconfiguration.
+
+To keep this script running, I would use something similar to Windows Task Scheduler.
+(I know there are many much more sophisticated software for that, but I can only speak from experience, and that is a software I have at least some experience)
+
+So this kind of script could be used in two ways:
+Keep it running. This method would have predefined time periods inside the script when certain functions would run. 
+Running a task on a schedule. This method would predefine times when the script would run inside a scheduler.
+
+I think the most efficient method would be chosen based on the expected results. If we want to only get results of one keyword every 24h, it wouldn’t make much sense,
+to keep it running forever. Otherwise, if we want to have more control over what we are looking for, it would be better to have a script running and have the ability 
+to change the monitoring keyword on demand via Slack.
